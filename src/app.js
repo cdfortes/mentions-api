@@ -43,5 +43,10 @@ process.on('SIGINT', () => {
 const indexRoutes = require('./routes/index-routes');
 app.use('/', indexRoutes);
 
+// Load routes of mentions
+const mentionsRoutes = require('./routes/mentions-routes');
+app.use('/mentions', mentionsRoutes);
+
+
 module.exports = app;
 
