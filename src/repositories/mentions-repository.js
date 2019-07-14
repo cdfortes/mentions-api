@@ -8,8 +8,20 @@ exports.listMentions = async () => {
     return res;
 
 };
-
+//Create
 exports.createMention = async data => {
     const mention = new Mentions(data);
     await mention.save();
+};
+
+//Update
+exports.updateMentions = async (id, data) => {
+    await Mentions.findByIdAndUpdate(id, {
+        $set:data
+    });
+};
+
+//Delete
+exports.deleteMentions = async id => {
+    await Mentions.findByIdAndRemove(id);
 };
