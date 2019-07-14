@@ -5,6 +5,9 @@ require('dotenv').config();
 // App
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 // Database
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
     useNewUrlParser: true,
@@ -49,4 +52,6 @@ app.use('/mentions', mentionsRoutes);
 
 
 module.exports = app;
+
+
 
